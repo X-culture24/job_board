@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Job Board</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Apply Google Fonts */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url('https://images.pexels.com/photos/8124403/pexels-photo-8124403.jpeg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        /* Form Container */
+        .login-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .login-container h2 {
+            color: #007BFF; /* Blue */
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .login-container form input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-container button {
+            background: #4CAF50; /* Green */
+            color: white;
+            padding: 12px;
+            border: none;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .login-container button:hover {
+            background: #2e7d32;
+        }
+
+        /* Typewriter Effect */
+        .typewriter {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            color: #007BFF;
+            border-right: 2px solid white;
+            white-space: nowrap;
+            overflow: hidden;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            animation: typing 3s steps(40, end) forwards, blink 0.75s infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        .register-link, .forgot-password {
+            color: lightblue;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-link:hover, .forgot-password:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="{% url 'register' %}" class="register-link">Sign up</a></p>
+        <p><a href="{% url 'password_reset' %}" class="forgot-password">Forgot Password?</a></p>
+    </div>
+
+    <!-- Typewriter Message -->
+    <p class="typewriter">Sign in and connect with new opportunities</p>
+
+</body>
+</html>

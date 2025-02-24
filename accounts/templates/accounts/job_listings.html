@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Jobs | Job Board</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .job-container {
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .job-list {
+            text-align: left;
+        }
+
+        .job {
+            background: #1a1a1a;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .job:hover {
+            background: #007BFF;
+            transform: scale(1.05);
+        }
+
+        .job h3 {
+            margin: 0;
+            font-size: 20px;
+            color: cyan;
+        }
+
+        .job p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: 600;
+            background: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .apply-btn:hover {
+            background: #2e7d32;
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="job-container">
+        <h1>Available Jobs</h1>
+        <div class="job-list">
+            <div class="job">
+                <h3>Software Engineer</h3>
+                <p>Company: Google</p>
+                <p>Location: Remote</p>
+                <p>Salary: $100,000/year</p>
+                <a href="#" class="apply-btn">Apply Now</a>
+            </div>
+
+            <div class="job">
+                <h3>UI/UX Designer</h3>
+                <p>Company: Microsoft</p>
+                <p>Location: On-site</p>
+                <p>Salary: $85,000/year</p>
+                <a href="#" class="apply-btn">Apply Now</a>
+            </div>
+
+            <div class="job">
+                <h3>Data Scientist</h3>
+                <p>Company: Amazon</p>
+                <p>Location: Hybrid</p>
+                <p>Salary: $120,000/year</p>
+                <a href="#" class="apply-btn">Apply Now</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Profile | Job Board</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .form-container {
+            max-width: 600px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: 500;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #2e7d32;
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Complete Your Profile</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="field_of_study">Field of Study:</label>
+            <input type="text" id="field_of_study" name="field_of_study" required>
+
+            <label for="experience">Work Experience (Years):</label>
+            <input type="number" id="experience" name="experience" required>
+
+            <label for="skills">Top Skills (comma-separated):</label>
+            <input type="text" id="skills" name="skills" required>
+
+            <label for="job_type">Preferred Job Type:</label>
+            <select id="job_type" name="job_type">
+                <option value="remote">Remote</option>
+                <option value="onsite">On-site</option>
+                <option value="hybrid">Hybrid</option>
+            </select>
+
+            <label for="salary_expectation">Salary Expectation ($ per year):</label>
+            <input type="number" id="salary_expectation" name="salary_expectation" required>
+
+            <label for="linkedin">LinkedIn Profile (Optional):</label>
+            <input type="url" id="linkedin" name="linkedin">
+
+            <button type="submit" class="btn-submit">Save Profile</button>
+        </form>
+    </div>
+
+</body>
+</html>

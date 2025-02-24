@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Job Board</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .dashboard-container {
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+            overflow-y: auto;
+            max-height: 90vh;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            margin-top: 10px;
+        }
+
+        .btn-green {
+            background: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        .btn-green:hover {
+            background: #2e7d32;
+            transform: scale(1.05);
+        }
+
+        .btn-blue {
+            background: #007BFF;
+            color: white;
+            border: none;
+        }
+
+        .btn-blue:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Typewriter Effect */
+        .typewriter {
+            font-size: 22px;
+            font-weight: 500;
+            color: cyan;
+            border-right: 2px solid white;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3s steps(40, end) forwards, blink 0.75s infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        /* Recommended Jobs & Posts */
+        .section {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid cyan;
+            padding-bottom: 5px;
+        }
+
+        .job-list, .post-list {
+            list-style: none;
+            padding: 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .job-list li, .post-list li {
+            background: #1c1c1c;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .job-list li:hover, .post-list li:hover {
+            transform: scale(1.02);
+        }
+
+        .job-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: cyan;
+        }
+
+        .job-company {
+            font-size: 16px;
+            color: #aaa;
+        }
+
+        .post-content {
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        .post-author {
+            font-size: 14px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h1>Welcome to Your Job Dashboard</h1>
+        <p>Find opportunities that match your skills and expertise.</p>
+
+        <!-- Typewriter Effect -->
+        <p class="typewriter">Tell us more about yourself!</p>
+
+        <!-- Buttons -->
+        <a href="{% url 'profile_form' %}" class="btn btn-green">Complete Your Profile</a>
+        <a href="{% url 'job_listings' %}" class="btn btn-blue">Find Jobs</a>
+
+        <!-- Recommended Jobs Section -->
+        <div class="section">
+            <h2>🔍 Recommended Jobs</h2>
+            <ul class="job-list">
+                {% for job in recommended_jobs %}
+                    <li>
+                        <span class="job-title">{{ job.title }}</span>  
+                        <br>
+                        <span class="job-company">at {{ job.company }}</span>
+                        <br>
+                        <a href="{% url 'job_detail' job.id %}" class="btn btn-blue">View Job</a>
+                    </li>
+                {% empty %}
+                    <li>No jobs found matching your profile.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Social Posts Section -->
+        <div class="section">
+            <h2>🌍 Social Feed</h2>
+            <ul class="post-list">
+                {% for post in recent_posts %}
+                    <li>
+                        <p class="post-content">"{{ post.content }}"</p>
+                        <span class="post-author">- {{ post.user.username }}</span>
+                    </li>
+                {% empty %}
+                    <li>No recent posts available.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>

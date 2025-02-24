@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Job</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4faff;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            background: url('https://images.pexels.com/photos/5668474/pexels-photo-5668474.jpeg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-text {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .cta-buttons {
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            background: #00a86b;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s ease-in-out;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background: #008956;
+            transform: scale(1.05);
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 0;
+        }
+
+        .feature {
+            width: 30%;
+            padding: 20px;
+            border-radius: 10px;
+            background: #d6f5e6;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #00a86b;
+            display: inline-block;
+            width: 0;
+            animation: typing 4s steps(40, end) forwards, blink 0.8s infinite;
+            font-size: 26px;
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        /* Engagement Section */
+        .engagement {
+            background: #e6f7ff;
+            padding: 50px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 50px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .engagement h2 {
+            color: #0056b3;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .stat {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 22px;
+            font-weight: bold;
+            color: #00a86b;
+        }
+
+        /* Footer Section */
+        .footer {
+            position: relative;
+            height: 60vh;
+            background: url('https://images.pexels.com/photos/6694904/pexels-photo-6694904.jpeg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .footer-overlay {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .footer-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .footer-typewriter {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid white;
+            display: inline-block;
+            width: 0;
+            animation: typingFooter 5s steps(50, end) infinite, blink 0.8s infinite;
+        }
+
+        @keyframes typingFooter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-text">
+            <h1 class="typewriter">Find Your Dream Job Today!</h1>
+            <p>Your career starts here. Explore opportunities that match your skills.</p>
+            <div class="cta-buttons">
+                <a href="{% url 'register' %}" class="cta-button">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container">
+        <h2 style="color: #0056b3;">What We Offer</h2>
+        <div class="features">
+            <div class="feature">
+                <img src="https://images.pexels.com/photos/8636637/pexels-photo-8636637.jpeg" alt="Collaboration">
+                <h3>Professional Growth</h3>
+                <p>We connect you to the best jobs tailored to your skills.</p>
+            </div>
+
+            <div class="feature">
+                <img src="https://images.pexels.com/photos/5439488/pexels-photo-5439488.jpeg" alt="Meeting">
+                <h3>Networking</h3>
+                <p>Build connections with top professionals in your industry.</p>
+            </div>
+
+            <div class="feature">
+                <img src="https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg" alt="Documents">
+                <h3>Smart Job Matching</h3>
+                <p>AI-driven job recommendations to make job hunting effortless.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Engagement Section -->
+    <div class="engagement">
+        <h2>Live Activity</h2>
+        <div class="stats">
+            <div class="stat">👥 50+ Active Users</div>
+            <div class="stat">💬 120+ Interactions</div>
+            <div class="stat">📢 200+ Jobs Available</div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <div class="footer-overlay">
+            <p class="footer-text">
+                <span class="footer-typewriter">Wish to get started? Sign in here.</span>
+            </p>
+            <a href="{% url 'register' %}" class="cta-button">Sign Up</a>
+        </div>
+    </div>
+
+</body>
+</html>
